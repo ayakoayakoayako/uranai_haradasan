@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>今日のラッキー占い</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #ff6666;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 5px;
+        }
+        .content {
+            background: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #count-display {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            margin-top: 10px;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌟 今日のラッキー占い 🌟</h1>
+
+    <button onclick="generateFortune()">今日の占いを見る</button>
+    <div id="count-display"></div>
+
+    <div class="section">
+        <div class="section-title">🔮 今日のあなたへ</div>
+        <div class="content" id="message"></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">☕ 今日のラッキーアイテム</div>
+        <div class="content" id="item"></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🏢 今日のラッキー階</div>
+        <div class="content" id="floor"></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🎨 今日のラッキーカラー</div>
+        <div class="content" id="color"></div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🎉 ラッキーが起こりやすい人</div>
+        <div class="content" id="lucky"></div>
+    </div>
+
+    <script>
+        const messages = [
+            "少し疲れていませんか？",
+            "最近、人知れず努力していませんか？",
+            "自分では気づかないうちに頑張りすぎていませんか？",
+            "誰にも言えない悩み、抱えていませんか？",
+            "ほんの少しの変化に気づいていますか？",
+            "最近、何かを我慢していませんか？",
+            "本当はもう少し評価されたいと思っていませんか？",
+            "心の奥にしまい込んだ気持ち、ありませんか？",
+            "最近、笑顔の裏で無理していませんか？",
+            "誰かのために、自分を後回しにしていませんか？",
+            "今日のあなた、自分で思っている以上に頑張っていませんか？",
+            "ちょっとしたことで心が揺れていませんか？",
+            "最近、周りに気を遣いすぎていませんか？",
+            "見えないプレッシャーに押されていませんか？",
+            "本当は気づいてほしいこと、ありませんか？"
+        ];
+
+        const items = [
+            "ホットコーヒー",
+            "ボールペン",
+            "名刺入れ",
+            "スマホの画面",
+            "エレベーターのボタン",
+            "甘い飲み物",
+            "黒いパソコン",
+            "御守り"
+        ];
+
+        const floors = [
+            "1階", "2階", "3階", "4階", "5階", "6階", "7階",
+            "8階", "9階", "10階", "11階",
+            "12階", "12階", "12階", "12階", "12階",
+            "13階", "14階"
+        ];
+
+        const colors = [
+            "黄色", "黄色", "黄色", "黄色", "黄色",
+            "青", "緑", "赤", "白", "黒", "オレンジ", "グレー", "ピンク", "水色"
+        ];
+
+        const luckyPeople = [
+            "誕生日に「1」が入っている人",
+            "誕生日に「2」が入っている人",
+            "誕生日に「4」が入っている人",
+            "誕生日に「0」が入っている人",
+            "秋生まれの人",
+            "10月生まれの人",
+            "さそり座の人",
+            "最近、少しだけ自分を変えたいと思った人",
+            "最近、周りの空気を読もうと頑張った人",
+            "最近、鏡を見たときに「疲れてるな」と思った人",
+            "最近、夜更かしをした人"
+        ];
+
+        let count = 0;
+
+        function getRandom(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function generateFortune() {
+            count++;
+            document.getElementById('count-display').textContent = `${count}回目の占いです`;
+
+            document.getElementById('message').textContent = getRandom(messages);
+            document.getElementById('item').textContent = getRandom(items);
+            document.getElementById('floor').textContent = getRandom(floors);
+            document.getElementById('color').textContent = getRandom(colors);
+            document.getElementById('lucky').textContent = getRandom(luckyPeople);
+        }
+    </script>
+</body>
+</html>
