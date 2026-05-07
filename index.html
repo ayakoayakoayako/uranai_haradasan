@@ -2,55 +2,84 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>今日のラッキー占い</title>
+
     <style>
-body {
-    font-family: sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    padding: 10px;
-    box-sizing: border-box;
-    font-size: 1.2rem;
-    margin: 0;
-}
 
-.section {
-    width: 88%;
-    margin: 0 auto 20px auto;
-}
+        body {
+            font-family: sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 1.2rem;
+            margin: 0;
+        }
 
-.content {
-    background: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    line-height: 1.7;
-    word-break: break-word;
-}
+        h1 {
+            text-align: center;
+            color: #ff6666;
+            font-size: 2rem;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
 
-.section-title {
-    font-weight: bold;
-    color: #444;
-    margin-bottom: 8px;
-    font-size: 1.1rem;
-}
+        .section {
+            width: 98%;
+            margin: 0 auto 20px auto;
+        }
 
-button {
-    display: block;
-    width: 92%;
-    margin: 20px auto;
-    padding: 15px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 10px;
-    background-color: #ffcc00;
-    color: #333;
-}
+        .section-title {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .content {
+            background: #fff;
+            padding: 12px;
+            border-radius: 10px;
+            line-height: 1.7;
+            word-break: break-word;
+        }
+
+        #count-display {
+            text-align: center;
+            font-size: 1rem;
+            color: #777;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            display: block;
+            width: 98%;
+            margin: 20px auto;
+            padding: 15px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            background-color: #ffcc00;
+            color: #333;
+        }
+
+        button:active {
+            opacity: 0.8;
+        }
+
     </style>
 </head>
+
 <body>
+
     <h1>🌟 今日のラッキー占い 🌟</h1>
 
-    <button onclick="generateFortune()">今日の占いを見る</button>
+    <button onclick="generateFortune()">
+        今日の占いを見る
+    </button>
+
     <div id="count-display"></div>
 
     <div class="section">
@@ -79,6 +108,7 @@ button {
     </div>
 
     <script>
+
         const messages = [
             "少し疲れていませんか？",
             "最近、人知れず努力していませんか？",
@@ -109,15 +139,41 @@ button {
         ];
 
         const floors = [
-            "1階", "2階", "3階", "4階", "5階", "6階", "7階",
-            "8階", "9階", "10階", "11階",
-            "12階", "12階", "12階", "12階", "12階",
-            "13階", "14階"
+            "1階",
+            "2階",
+            "3階",
+            "4階",
+            "5階",
+            "6階",
+            "7階",
+            "8階",
+            "9階",
+            "10階",
+            "11階",
+            "12階",
+            "12階",
+            "12階",
+            "12階",
+            "12階",
+            "13階",
+            "14階"
         ];
 
         const colors = [
-            "黄色", "黄色", "黄色", "黄色", "黄色",
-            "青", "緑", "赤", "白", "黒", "オレンジ", "グレー", "ピンク", "水色"
+            "黄色",
+            "黄色",
+            "黄色",
+            "黄色",
+            "黄色",
+            "青",
+            "緑",
+            "赤",
+            "白",
+            "黒",
+            "オレンジ",
+            "グレー",
+            "ピンク",
+            "水色"
         ];
 
         const luckyPeople = [
@@ -141,15 +197,31 @@ button {
         }
 
         function generateFortune() {
-            count++;
-            document.getElementById('count-display').textContent = `${count}回目の占いです`;
 
-            document.getElementById('message').textContent = getRandom(messages);
-            document.getElementById('item').textContent = getRandom(items);
-            document.getElementById('floor').textContent = getRandom(floors);
-            document.getElementById('color').textContent = getRandom(colors);
-            document.getElementById('lucky').textContent = getRandom(luckyPeople);
+            count++;
+
+            document.getElementById('count-display').textContent =
+                count + "回目の占いです";
+
+            document.getElementById('message').textContent =
+                getRandom(messages);
+
+            document.getElementById('item').textContent =
+                getRandom(items);
+
+            document.getElementById('floor').textContent =
+                getRandom(floors);
+
+            document.getElementById('color').textContent =
+                getRandom(colors);
+
+            document.getElementById('lucky').textContent =
+                getRandom(luckyPeople);
         }
+
+        generateFortune();
+
     </script>
+
 </body>
 </html>
